@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        Email<input type="text" name="email">
+        Password<input type="text" name="password">
+        <input type="submit">
+    </form>
+    <a href="{%url 'register' %}">Create an account</a>
+    <span>{{message}}</span>
+
+</body>

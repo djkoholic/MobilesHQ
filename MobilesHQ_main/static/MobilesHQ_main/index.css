@@ -1,0 +1,95 @@
+body {
+  background-color: lightskyblue;
+}
+
+#box {
+  min-width: min-content;
+}
+
+#navContainer {
+  overflow: auto;
+}
+
+#navContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.brandNav {
+  height: 70px;
+  width: 130px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  background-color: rgb(194, 194, 194);
+  border: 1px solid rgb(105, 105, 105);
+  border-radius: 10px;
+  text-align: center;
+}
+
+#sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+#logo {
+  height: 100px;
+  width: 210px;
+}
+
+#logodiv {
+  height: 90px;
+  transition: 0.5s;
+}
+
+img {
+  display: block;
+}
+
+.nav {
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+}
+
+#cross {
+  overflow: hidden;
+  width: 0px;
+  transition: 0.5s;
+  padding: 0px 0px 0px 0px;
+}
+
+#searchbar {
+  overflow: hidden;
+  width: 0px;
+  transition: 0.5s;
+
+  padding: 0px 0px 0px 0px;
+}
+
+#input {
+  width: 200px;
+  transition: 2s;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-container {
+  background-color: lightskyblue;
+}
+
+#sub-container {
+  display: flex;
+  align-items: center;
+}

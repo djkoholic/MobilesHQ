@@ -1,0 +1,17 @@
+{% extends "MobilesHQ_main/index.html" %} {% load static %} {% block style %}
+<style>
+  .product {
+    margin-bottom: 20px;
+    border: solid 1px black;
+  }
+</style>
+{% endblock %} {% block body %}
+
+<div>
+  <h1>Welcome to your cart, {{user.firstName}}!</h1>
+</div>
+<div id="cart"></div>
+{% endblock %} {% block script %} {{cart|json_script:"products"}}
+<script type="text/babel" src="{% static 'MobilesHQ_main/cart.js'%}"></script>
+
+{% endblock %}

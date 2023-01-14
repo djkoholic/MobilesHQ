@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<head>
+  {% load static %}
+  <script
+    src="{% static 'MobilesHQ_main/react.production.min.js'%}"
+    crossorigin
+  ></script>
+  <script
+    src="{% static 'MobilesHQ_main/react-dom.production.min.js'%}"
+    crossorigin
+  ></script>
+  <script src="{% static 'MobilesHQ_main/babel.min.js'%}"></script>
+  <script>
+    function menu() {
+      document.getElementById("sidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("sidenav").style.width = "0px";
+    }
+    function search() {
+      let searchbar = document.getElementById("searchbar").style;
+      let cross = document.getElementById("cross").style;
+      searchbar.width = "208px";
+      searchbar.paddingLeft = "20px";
+      searchbar.paddingRight = "20px";
+      cross.width = "30px";
+      cross.paddingLeft = "20px";
+      cross.paddingRight = "20px";
+    }
+    function cross() {
+      let searchbar = document.getElementById("searchbar").style;
+      let cross = document.getElementById("cross").style;
+      searchbar.width = "0px";
+      searchbar.paddingLeft = "0px";
+      searchbar.paddingRight = "0px";
+      cross.width = "0px";
+      cross.paddingLeft = "0px";
+      cross.paddingRight = "0px";
+    }
+  </script>
+  {% block script %} {% endblock %} {% block style %} {% endblock %}
+
+  <link rel="stylesheet" href="{% static 'MobilesHQ_main/index.css' %}" />
+  <title>mobilesHQ</title>
+</head>
+
+<body>
+  <div id="main-container" class="container">
+    <div id="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav" onclick="menu()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        />
+      </svg>
+    </div>
+    <div id="sub-container" class="nav">
+      <div id="logodiv" class="nav">
+        <img
+          id="logo"
+          src="{% static 'MobilesHQ_main/MobilesHQ_logo.png'%}"
+          alt="mobileshq"
+        />
+      </div>
+      <div id="searchbar" class="nav">
+        <input id="input" type="text" placeholder="Search" />
+      </div>
+
+      <div class="nav" onclick="search()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+          onclick="search()"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </div>
+      <div class="nav" id="cross" onclick="cross()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="nav" id="logindiv">
+      {% if user.is_authenticated %}
+      <span>Welcome, {{user.firstName}} {{user.lastName}}</span>
+      <span><a href="{% url 'logout' %}">Logout</a></span>
+      {% else %}
+      <span><a href="{% url 'login' %}">Login</a></span>
+      {% endif %}
+    </div>
+  </div>
+  <div id="navContainer" class="container">
+    <div class="container" id="box">
+      <div class="brandNav">Realme</div>
+      <div class="brandNav">Apple</div>
+      <div class="brandNav">Samsung</div>
+      <div class="brandNav">One Plus</div>
+      <div class="brandNav">Sony</div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+      <div class="brandNav"></div>
+    </div>
+  </div>
+  <div>{% block body %} {% endblock %}</div>
+</body>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        First Name<input type="text" name="fn">
+        Last Name<input type="text" name="ln">
+        Email<input type="text" name="email">
+        Password<input type="password" name="password">
+        <input type="submit">
+    </form>
+</body>

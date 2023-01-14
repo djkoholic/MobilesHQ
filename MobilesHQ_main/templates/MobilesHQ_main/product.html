@@ -1,0 +1,25 @@
+{% extends "MobilesHQ_main/index.html" %} {% load static %} {% block body %}
+<div id="product"></div>
+<div>
+  <span id="color"></span>
+</div>
+<div>
+  <h1>{{product}}</h1>
+</div>
+<div>
+  <form action="{% url 'product' product.id %}" method="post">
+    {% csrf_token %}
+    <div id="form"></div>
+    <div>
+      <input type="submit" value="Add to cart" />
+    </div>
+  </form>
+</div>
+{% endblock %} {% block script %} {{colors|json_script:"colors"}}
+{{storage|json_script:"storage"}}
+<script
+  type="text/babel"
+  src="{% static 'MobilesHQ_main/product.js'%}"
+></script>
+
+{% endblock %}
